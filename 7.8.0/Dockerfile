@@ -7,4 +7,6 @@ ENV VERSION=7.8.0
 ADD https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${VERSION}/elasticsearch-analysis-ik-$VERSION.zip /tmp/
 RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install -b file:///tmp/elasticsearch-analysis-ik-$VERSION.zip
 
+COPY ./IKAnalyzer.cfg.xml config/analysis-ik/
+
 RUN rm -rf /tmp/*
